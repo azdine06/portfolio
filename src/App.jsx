@@ -12,11 +12,11 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'landing':
-        return <Landing />;
+        return <Landing setCurrentPage={setCurrentPage} />;
       case 'projects':
-        return <Projects />;
+        return <Projects setCurrentPage={setCurrentPage} />;
       case 'about':
-        return <About />;
+        return <About setCurrentPage={setCurrentPage} />;
       case 'contact':
         return <Contact />;
       default:
@@ -28,7 +28,7 @@ function App() {
     <ThemeProvider>
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
         <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <main className="pt-16">
+        <main>
           {renderPage()}
         </main>
       </div>

@@ -150,6 +150,20 @@ export const portfolioData = {
         "PostgreSQL",
         "Docker"
       ]
+    },
+    {
+      "name": "WindShield",
+      "duration": "Novembre – Décembre 2024",
+      "description": "Dashboard de monitoring en temps réel des éoliennes avec visualisation des performances, suivi du statut des turbines, système de notifications et métriques avancées (disponibilité, facteur de puissance, production attendue vs réelle)",
+      "type": "Wind Energy Monitoring",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Mantine UI",
+        "Vite",
+        "CSS Modules",
+        "Responsive Design"
+      ]
     }
   ],
   "education": [
