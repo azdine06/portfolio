@@ -81,7 +81,7 @@ const Landing = ({ setCurrentPage }) => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               {/* Glowing badge */}
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-300 text-sm font-medium mb-6 backdrop-blur-sm animate-pulse-slow">
+              <div className="inline-flex items-center px-4 py-2 rounded-full glass-orange text-orange-300 text-sm font-medium mb-6 animate-pulse-slow glass-shimmer">
                 <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
                 Open to opportunities
               </div>
@@ -105,7 +105,7 @@ const Landing = ({ setCurrentPage }) => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="group flex items-center justify-center lg:justify-start px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-gray-300 hover:bg-orange-500/20 hover:border-orange-500/30 hover:text-orange-300 transition-all duration-300"
+                  className="group flex items-center justify-center lg:justify-start px-4 py-2 rounded-xl glass hover:glass-orange text-gray-300 hover:text-orange-300 transition-all duration-300"
                 >
                   <svg className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
@@ -113,7 +113,7 @@ const Landing = ({ setCurrentPage }) => {
                   </svg>
                   {personalInfo.email}
                 </a>
-                <div className="flex items-center justify-center lg:justify-start px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-gray-300">
+                <div className="flex items-center justify-center lg:justify-start px-4 py-2 rounded-xl glass text-gray-300">
                   <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                   </svg>
@@ -122,7 +122,7 @@ const Landing = ({ setCurrentPage }) => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start flex-wrap">
                 <button
                   onClick={() => setCurrentPage("projects")}
                   className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:scale-105"
@@ -135,6 +135,21 @@ const Landing = ({ setCurrentPage }) => {
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </button>
+
+                {/* Download CV Button */}
+                <a
+                  href="/CV_AzEddine.pdf"
+                  download="CV_AzEddine_Zahir_Elouadghiri.pdf"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-emerald-500 to-green-600 text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30 hover:scale-105 flex items-center justify-center"
+                >
+                  <span className="relative z-10 flex items-center justify-center">
+                    <svg className="w-5 h-5 mr-2 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Download CV
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-green-700 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
 
                 <button
                   onClick={() => setCurrentPage("contact")}
@@ -202,7 +217,7 @@ const Landing = ({ setCurrentPage }) => {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="group text-center p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+                className="group text-center p-6 rounded-2xl transition-all duration-300 hover:-translate-y-2 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-white/50 dark:border-gray-700/50 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50 hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-500/30"
               >
                 <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
                   {stat.icon}
