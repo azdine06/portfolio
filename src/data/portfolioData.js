@@ -83,6 +83,39 @@ export const portfolioData = {
   },
   "experience": [
     {
+      "company": "TAREC (Tarfaya Ennery Company)",
+      "location": "Casablanca",
+      "position": "Stagiaire Développeur Full Stack Python / Next.js",
+      "duration": "Août 2024 – Aujourd'hui",
+      "methodology": "Agile (Scrum)",
+      "context": "Intégré à une équipe technique dynamique, j'ai contribué à deux projets majeurs, la modernisation des processus métiers en interne, puis la conception de solutions performantes et maintenables pour la logistique portuaire, en garantissant la qualité du code tout au long du développement.",
+      "mainResponsibilities": [
+        "Authentifier les utilisateurs et gérer les sessions",
+        "Collaborer avec l'équipe pour analyser les besoins et mettre en œuvre des solutions",
+        "Offrir un dashboard avec KPI, vue temps réel des actifs et carte géospatiale",
+        "Intégrer/ingérer des données via API REST (assets, uploads) et préparer la diffusion temps réel (WebSocket)",
+        "Développer et maintenir des API RESTful et des services web",
+        "Fournir une UI moderne, accessible, responsive avec animations",
+        "Maintenir et améliorer les applications existantes grâce à une maintenance corrective et évolutive",
+        "Rédiger et mettre à jour la documentation technique et les procédures d'exploitation",
+        "Optimiser l'application pour une performance et une scalabilité maximale"
+      ],
+      "technicalEnvironment": [
+        "Python",
+        "Django",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "Git",
+        "Docker",
+        "VS Code",
+        "DBeaver",
+        "JUnit",
+        "Warp"
+      ]
+    },
+    {
       "company": "INNOV DS",
       "location": "Fès",
       "position": "Stagiaire Développeur Full Stack Java / Next.js",
