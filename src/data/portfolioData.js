@@ -6,8 +6,9 @@ export const portfolioData = {
     "title": "DÉVELOPPEUR FULL STACK JAVA / NEXT.JS",
     "email": "oazdine06@gmail.com",
     "phone": "+212 642 03 95 03",
-    "location": "Fès, Maroc",
-    "linkedin": "az.eddine ouadghiri",
+    "location": "Casablanca, Maroc",
+    "linkedin": "az-eddine-ouadghiri-777124290/",
+    "github": "AZ-Eddine06", 
     "profileSummary": "Développeur Full Stack passionné, récemment diplômé d'un Master en Génie Logiciel et Systèmes Intelligents à l'École Nationale des Sciences Appliquées de Fès. Solide maîtrise des technologies Java et Next.js, acquise au travers de projets académiques ambitieux et d'une première expérience concrète en entreprise, au sein d'environnements techniques exigeants. À l'aise avec les méthodes agiles (Scrum), les outils de versioning, les bases de données SQL, avec une forte sensibilité à la qualité du code, aux bonnes pratiques (Clean Code, SOLID). Curieux, autonome et impliqué, Je suis prêt à m'investir pleinement au sein d'une équipe pour contribuer à des projets à fort impact."
   },
   "skills": {
