@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { portfolioData } from '../data/portfolioData';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { personalInfo } = portfolioData;
@@ -13,6 +14,7 @@ const Contact = () => {
   const [focusedField, setFocusedField] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     setIsVisible(true);
@@ -28,16 +30,36 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'oazdine06@gmail.com',
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-    console.log('Form submitted:', formData);
-    setIsSubmitting(false);
-    setSubmitSuccess(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+      console.log('Email sent successfully:', result);
+      setIsSubmitting(false);
+      setSubmitSuccess(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
 
-    setTimeout(() => setSubmitSuccess(false), 5000);
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    } catch (error) {
+      console.error('Email send error:', error);
+      setIsSubmitting(false);
+      setSubmitError('Failed to send message. Please try again or contact me directly via email.');
+
+      setTimeout(() => setSubmitError(''), 5000);
+    }
   };
 
   const contactMethods = [
@@ -235,6 +257,21 @@ const Contact = () => {
                 </div>
               )}
 
+              {/* Error Message */}
+              {submitError && (
+                <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl flex items-center animate-fade-in">
+                  <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-red-800 dark:text-red-200">Error sending message</p>
+                    <p className="text-sm text-red-600 dark:text-red-400">{submitError}</p>
+                  </div>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6 relative">
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Name Field */}
@@ -242,8 +279,8 @@ const Contact = () => {
                     <label
                       htmlFor="name"
                       className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'name' || formData.name
-                          ? '-top-2.5 text-xs bg-white dark:bg-gray-800 px-2 text-orange-500'
-                          : 'top-4 text-gray-500'
+                        ? '-top-2.5 text-xs bg-white dark:bg-gray-800 px-2 text-orange-500'
+                        : 'top-4 text-gray-500'
                         }`}
                     >
                       Full Name *
@@ -266,8 +303,8 @@ const Contact = () => {
                     <label
                       htmlFor="email"
                       className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'email' || formData.email
-                          ? '-top-2.5 text-xs bg-white dark:bg-gray-800 px-2 text-orange-500'
-                          : 'top-4 text-gray-500'
+                        ? '-top-2.5 text-xs bg-white dark:bg-gray-800 px-2 text-orange-500'
+                        : 'top-4 text-gray-500'
                         }`}
                     >
                       Email Address *
@@ -291,8 +328,8 @@ const Contact = () => {
                   <label
                     htmlFor="subject"
                     className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'subject' || formData.subject
-                        ? '-top-2.5 text-xs bg-white dark:bg-gray-800 px-2 text-orange-500'
-                        : 'top-4 text-gray-500'
+                      ? '-top-2.5 text-xs bg-white dark:bg-gray-800 px-2 text-orange-500'
+                      : 'top-4 text-gray-500'
                       }`}
                   >
                     Subject *
@@ -315,8 +352,8 @@ const Contact = () => {
                   <label
                     htmlFor="message"
                     className={`absolute left-4 transition-all duration-300 pointer-events-none ${focusedField === 'message' || formData.message
-                        ? '-top-2.5 text-xs bg-white dark:bg-gray-800 px-2 text-orange-500'
-                        : 'top-4 text-gray-500'
+                      ? '-top-2.5 text-xs bg-white dark:bg-gray-800 px-2 text-orange-500'
+                      : 'top-4 text-gray-500'
                       }`}
                   >
                     Your Message *
